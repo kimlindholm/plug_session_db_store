@@ -16,6 +16,7 @@ defmodule PlugSessionDbStoreWeb.ConnCase do
   """
 
   use ExUnit.CaseTemplate
+  alias Ecto.Adapters.SQL.Sandbox
 
   using do
     quote do
@@ -32,10 +33,10 @@ defmodule PlugSessionDbStoreWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(PlugSessionDbStore.Repo)
+    :ok = Sandbox.checkout(PlugSessionDbStore.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(PlugSessionDbStore.Repo, {:shared, self()})
+      Sandbox.mode(PlugSessionDbStore.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
