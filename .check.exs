@@ -28,5 +28,10 @@
     ## custom new tools may be added (Mix tasks or arbitrary commands)
     # {:my_task, "mix my_task", env: %{"MIX_ENV" => "prod"}},
     # {:my_tool, ["my_tool", "arg with spaces"]}
+
+    {:compiler, env: %{"MIX_ENV" => "test"}},
+    {:formatter, env: %{"MIX_ENV" => "test"}},
+    {:ex_doc, env: %{"MIX_ENV" => "test"}},
+    {:inch_ex, "mix inch", env: %{"MIX_ENV" => "test"}}
   ]
 ]
