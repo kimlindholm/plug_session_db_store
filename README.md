@@ -1,6 +1,7 @@
 # Plug.Session DB Store
 
 [![CI](https://github.com/kimlindholm/plug_session_db_store/workflows/CI/badge.svg)](https://github.com/kimlindholm/plug_session_db_store/actions)
+[![Coverage Status](https://coveralls.io/repos/github/kimlindholm/plug_session_db_store/badge.svg?branch=master&t=9Ta6Ru)](https://coveralls.io/github/kimlindholm/plug_session_db_store?branch=master)
 
 How-To: Database Session Store with Elixir and Plug
 
@@ -28,6 +29,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 ## Testing
 
     $ mix test
+    $ mix cov
 
 ## License
 

@@ -85,4 +85,6 @@ jobs:
         run: mix compile --warnings-as-errors
 
       - name: Run tests
-        run: mix test
+        run: mix coveralls.github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
