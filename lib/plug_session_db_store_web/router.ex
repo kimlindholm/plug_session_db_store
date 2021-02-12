@@ -1,4 +1,6 @@
 defmodule PlugSessionDbStoreWeb.Router do
+  @moduledoc false
+
   use PlugSessionDbStoreWeb, :router
 
   pipeline :browser do

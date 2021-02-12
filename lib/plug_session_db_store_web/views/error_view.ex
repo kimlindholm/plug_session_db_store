@@ -1,4 +1,6 @@
 defmodule PlugSessionDbStoreWeb.ErrorView do
+  @moduledoc false
+
   use PlugSessionDbStoreWeb, :view
 
   # If you want to customize a particular status code

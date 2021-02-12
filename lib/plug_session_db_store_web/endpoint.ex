@@ -1,4 +1,6 @@
 defmodule PlugSessionDbStoreWeb.Endpoint do
+  @moduledoc false
+
   use Phoenix.Endpoint, otp_app: :plug_session_db_store
 
   # The session will be stored in the cookie and signed,
