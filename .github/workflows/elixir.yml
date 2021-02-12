@@ -78,13 +78,26 @@ jobs:
         if: steps.cache-deps-compilation.outputs.cache-hit != 'true'
         run: mix compile
 
-      - name: Check code formatting
-        run: mix format --check-formatted
+      - name: Cache PLTs
+        uses: actions/cache@v2
+        id: cache-plts
+        with:
+          path: priv/plts
+          key: cache-${{ runner.os }}-plts-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
 
-      - name: Compile and fail if warnings
-        run: mix compile --warnings-as-errors
+      - name: Create PLTs
+        if: steps.cache-plts.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p priv/plts
+          mix dialyzer --plt
+
+      - name: Compiler warnings, code formatting, Credo, Dialyzer, Doctor
+        run: mix check --except ex_unit --except inch_ex
 
       - name: Run tests
         run: mix coveralls.github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Inch
+        run: mix inch.report

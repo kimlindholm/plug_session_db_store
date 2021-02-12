@@ -13,11 +13,22 @@ defmodule PlugSessionDbStore.MixProject do
       deps: deps(),
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
+        check: :test,
+        credo: :test,
+        dialyzer: :test,
+        doctor: :test,
+        sobelow: :test,
+        inch: :test,
         cov: :test,
         coveralls: :test,
         "coveralls.detail": :test,
         "coveralls.post": :test,
         "coveralls.html": :test
+      ],
+      dialyzer: [
+        plt_add_apps: [:mix, :ex_unit],
+        check_plt: true,
+        ignore_warnings: ".dialyzer_ignore.exs"
       ]
     ]
   end
@@ -56,7 +67,15 @@ defmodule PlugSessionDbStore.MixProject do
       # Test coverage
       {:excoveralls, "~> 0.10", only: :test},
       # Factories
-      {:ecto_stream_factory, "~> 0.1", only: :test}
+      {:ecto_stream_factory, "~> 0.1", only: :test},
+      # Code analysis
+      {:ex_check, "~> 0.14.0", only: :test, runtime: false},
+      {:credo, "~> 1.4", only: :test, runtime: false},
+      {:dialyxir, "~> 1.0", only: :test, runtime: false},
+      # Documentation
+      {:doctor, "~> 0.17.0", only: :test},
+      {:ex_doc, "~> 0.22", only: [:dev, :test], runtime: false},
+      {:inch_ex, github: "rrrene/inch_ex", only: :test}
     ]
   end
 
