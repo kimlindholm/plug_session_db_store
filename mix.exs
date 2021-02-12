@@ -54,7 +54,9 @@ defmodule PlugSessionDbStore.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       # Test coverage
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      # Factories
+      {:ecto_stream_factory, "~> 0.1", only: :test}
     ]
   end
 
