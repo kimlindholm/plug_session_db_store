@@ -1,4 +1,20 @@
-# PlugSessionDbStore
+# Plug.Session DB Store
+
+[![CI](https://github.com/kimlindholm/plug_session_db_store/workflows/CI/badge.svg)](https://github.com/kimlindholm/plug_session_db_store/actions)
+
+How-To: Database Session Store with Elixir and Plug
+
+## Description
+
+See article [Database Session Store with Elixir and Plug](https://medium.com/@kimlindholm/database-session-store-with-elixir-and-plug-4354740e2f58).
+
+## Requirements
+
+* Phoenix 1.5.4 or later
+* Elixir: see section [`matrix.elixir`](.github/workflows/elixir.yml)
+* Erlang: see section [`matrix.otp`](.github/workflows/elixir.yml)
+
+## Installation
 
 To start your Phoenix server:
 
@@ -9,12 +25,10 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Testing
 
-## Learn more
+    $ mix test
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+## License
+
+See [LICENSE](LICENSE).
