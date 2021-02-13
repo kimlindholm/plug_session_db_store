@@ -1,6 +1,15 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace of mind from prototype to production</p>
+  <%= if @last_visited_at do %>
+    <h1>Last Visit</h1>
+    <p><%= timestamp(@last_visited_at) %></p>
+  <% else %>
+    <p>
+      <%= link "Record your first visit",
+            to: Routes.root_path(@conn, :index),
+            data: [qa_main_page_link: true],
+            class: "button" %>
+    </p>
+  <% end %>
 </section>
 
 <section class="row">

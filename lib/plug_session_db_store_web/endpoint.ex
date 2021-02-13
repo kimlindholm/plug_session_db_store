@@ -3,13 +3,18 @@ defmodule PlugSessionDbStoreWeb.Endpoint do
 
   use Phoenix.Endpoint, otp_app: :plug_session_db_store
 
+  max_age = 1_800
+
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
-    store: :cookie,
+    store: PlugSessionDbStoreWeb.DbSessionStore,
     key: "_plug_session_db_store_key",
-    signing_salt: "xdQqsdgn"
+    signing_salt: "xdQqsdgn",
+    encryption_salt: "ZvClDymr",
+    max_age: max_age,
+    store_max_age: max_age
   ]
 
   socket "/socket", PlugSessionDbStoreWeb.UserSocket,

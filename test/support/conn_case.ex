@@ -24,8 +24,7 @@ defmodule PlugSessionDbStoreWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import PlugSessionDbStoreWeb.ConnCase
-
-      alias PlugSessionDbStoreWeb.Router.Helpers, as: Routes
+      import PlugSessionDbStoreWeb.Router.Helpers
 
       # The default endpoint for testing
       @endpoint PlugSessionDbStoreWeb.Endpoint

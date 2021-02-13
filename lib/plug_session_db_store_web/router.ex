@@ -18,7 +18,8 @@ defmodule PlugSessionDbStoreWeb.Router do
   scope "/", PlugSessionDbStoreWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", PageController, :index, as: :root
+    get "/last_visit", PageController, :last_visit, as: :last_visit
   end
 
   # Other scopes may use custom stacks.
